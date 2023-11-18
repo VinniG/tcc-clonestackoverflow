@@ -54,9 +54,9 @@
                         <div class="d-flex flex-wrap">
                             <div class="d-inline-block w-25 mb-4" th:each="tag : ${tags}">
                                 <div class="tag-header">
-                                    <a class="bg-light small rounded p-1 text-info" th:href="@{'/tags/' + tag.id}"
-                                        th:text="${tag.name}"></a>
-                                    <span class="text-muted small" th:text="'× ' + @{tag.questions.size()}"></span>
+                                    <a class="bg-light small rounded p-1 text-info" th:href="${'/tags/' + tag.id}"
+                                       th:text="${tag.name}"></a>
+                                    <span class="text-muted small" th:text="'× ' + ${tag.questions.size()}"></span>
                                 </div>
                                 <div class="tag-description text-muted small" th:text="${tag.description}"></div>
                             </div>
