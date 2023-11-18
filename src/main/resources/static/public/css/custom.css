@@ -1,0 +1,103 @@
+body {
+    background-image:  url("/public/images/background-image.svg");
+    background-position: top left;
+    background-repeat: repeat;
+    background-color: #f7f7f7;
+    background-size: auto;
+}
+
+.form-wrapper {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-item > a:active {
+    color: #0c0d0e;
+}
+
+.nav-item > a {
+    color: #535a60;
+}
+
+.footer-container a {
+    color: #535a60;
+}
+
+.question-summary > a:hover {
+    text-decoration: none;
+}
+
+.question-summary a:hover {
+    text-decoration: none;
+}
+
+.question-summary .user-info a {
+    color: #5bc0de;
+}
+
+.user-browser a:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.vote-up {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+
+    border-bottom: 15px solid #bbc0c4;
+}
+
+.vote-down {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+
+    border-top: 15px solid #bbc0c4;
+}
+
+.user-gravatar.gravatar-50 img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+.user-avatar img {
+    width: 164px;
+    height: 164px;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+.user-gravatar.gravatar-32 img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+.left-sidebar li.nav-item.active {
+    border-width: 3px !important;
+    background: #eff0f1;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}

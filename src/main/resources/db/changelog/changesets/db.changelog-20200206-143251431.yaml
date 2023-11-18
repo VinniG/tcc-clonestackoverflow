@@ -1,0 +1,12 @@
+databaseChangeLog:
+- changeSet:
+    id: 1580999578471-1
+    author: vini.gomes (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: is_accepted
+            type: boolean
+        tableName: answer
+

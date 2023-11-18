@@ -1,0 +1,106 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="br" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title th:text="#{common.header.title}">Stack Overflow Clone</title>
+    <link th:replace="~{fragments/styles}">
+</head>
+<body class="d-flex flex-column h-100">
+<header>
+    <div th:replace="~{fragments/navigation}"></div>
+</header>
+<main class="d-flex flex-column flex-grow-1">
+    <div class="container-fluid d-flex flex-column flex-grow-1">
+        <div class="row d-flex flex-grow-1">
+            <div class="col-md-2 col-lg-2 offset-lg-1 d-none d-md-block pr-0">
+                <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+            </div>
+            <div class="col-md-10 col-lg-8 col-xl-7 bg-white border p-0 h-auto">
+                <div class="content">
+                    <div class="content-header mt-4 mx-4">
+                        <div class="section-title mb-3 clearfix">
+                            <div class="float-left h3 font-weight-normal"
+                                 th:text="#{home.title}">Explore Our Questions</div>
+                            <a class="float-right btn btn-primary" th:text="#{question.action.new}"
+                               th:href="@{/questions/new}">Ask Question</a>
+                        </div>
+                        <div class="search-form-wrapper mb-3 d-flex justify-content-between">
+                            <div class="tags float-left w-50">
+                                <div class="d-inline-block" th:each="tag : ${tags}">
+                                    <a class="mr-1 bg-light small rounded p-1 text-info" th:href="${'/tags/' + tag.id}"
+                                       th:text="${tag.name}"></a>
+                                </div>
+                                <a th:href="@{/tags}" class="small text-info">more tags</a>
+                            </div>
+                            <div class="btn-group float-right align-self-end" role="group">
+                                <button type="button"
+                                        class="btn btn-outline-secondary">Active</button>
+                                <button type="button"
+                                        class="btn btn-outline-secondary">Hot</button>
+                                <button type="button"
+                                        class="btn btn-outline-secondary">Week</button>
+                                <button type="button"
+                                        class="btn btn-outline-secondary">Month</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="questions-list-container border-top">
+
+                        <div class="d-flex float-none question-info px-3 py-3 border-bottom" th:each="question : ${questions}">
+                                <div class="question-stats d-flex text-muted text-center mr-4">
+                                    <div class="votes d-inline-block py-1 px-2">
+                                        <div class="mini-counts h6" th:text="${question.getRating()}"></div>
+                                        <div class="small">votes</div>
+                                    </div>
+                                    <div class="answers d-inline-block py-1 px-1"
+                                         th:classappend="(${question.answers.size() > 0} ? (${question.hasAcceptedAnswer()} ?
+                                         'rounded border border-success bg-success text-light' :
+                                         'rounded border border-success text-success') : '')">
+                                        <div class="mini-counts h6" th:text="${question.answers.size()}"></div>
+                                        <div class="small">answers</div>
+                                    </div>
+                                    <div class="views d-inline-block py-1 px-2">
+                                        <div class="mini-counts h6" th:text="${question.views}"></div>
+                                        <div class="small">views</div>
+                                    </div>
+                                </div>
+                                <div class="summary w-75">
+                                    <a class="text-info h6 d-block" th:href="${'/questions/' + question.id}"
+                                       th:text="${question.title}"></a>
+                                    <div class="tags d-inline-block float-left">
+                                        <div class="d-inline-block" th:each="tag : ${question.tags}">
+                                            <a class="mr-1 bg-light small rounded p-1 text-info" th:href="${'/tags/' + tag.id}"
+                                               th:text="${tag.name}"></a>
+                                        </div>
+                                    </div>
+                                    <div class="started d-inline-block float-right">
+                                        <div class="text-muted small">
+                                            <div class="d-inline-block"
+                                                 th:text="'asked ' + ${question.getFormattedDate(question.createdDate, 'd MMM yy hh:mm')}">
+                                            </div>
+                                            <a class="text-info"
+                                               th:href="${'/accounts/' + question.author.id}"
+                                               th:text="${question.author.name}"></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</footer>
+
+</body>
+</html>

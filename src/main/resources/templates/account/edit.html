@@ -1,0 +1,102 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="br" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title th:text="#{common.header.title}">Stack Overflow Clone</title>
+    <link th:replace="~{fragments/styles}">
+</head>
+<body class="d-flex flex-column h-100">
+<header>
+    <div th:replace="~{fragments/navigation}"></div>
+</header>
+<main class="d-flex flex-column flex-grow-1">
+    <div class="container-fluid d-flex flex-column flex-grow-1">
+        <div class="row d-flex flex-grow-1">
+            <div class="col-md-2 col-lg-2 offset-lg-1 d-none d-md-block pr-0">
+                <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+            </div>
+            <div class="col-md-10 col-lg-8 col-xl-7 bg-white border p-0 h-auto">
+                <div class="content mx-4 mt-4">
+                    <div th:replace="~{fragments/profile-tabs :: profile-tabs}"></div>
+                    <div class="h4 font-weight-normal border-bottom pb-3 mt-3">Edit your profile</div>
+                    <div class="edit-form mt-4">
+                        <form th:action="@{'/accounts'}"
+                              class="form"
+                              enctype="multipart/form-data"
+                              th:method="put" th:object="${account}">
+                            <input type="hidden" th:field="*{id}">
+                            <input type="hidden" th:field="*{password}">
+                            <input type="hidden" th:field="*{questions}">
+                            <input type="hidden" th:field="*{answers}">
+                            <input type="hidden" th:field="*{avatar.id}">
+                            <input type="hidden" th:field="*{roles}">
+
+
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <div class="avatar-card py-3 px-2 text-center rounded border">
+                                        <div th:if="${account.avatar}" class="user-avatar mb-1">
+                                            <img th:src="@{'data:image/jpeg;base64,' + ${account.avatar.data}}"
+                                                 class="user-avatar-image"
+                                                 th:alt="${'user avatar ' + account.id}">
+                                        </div>
+                                        <label class="custom-file-upload btn btn-primary mb-0"
+                                               for="profile-picture">Upload new picture</label>
+                                        <input class="form-control" id="profile-picture"
+                                               type="file" name="file" accept="image/*">
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-8">
+                                    <div class="form-group">
+                                    <label for="profile-name" class="small">Display name</label>
+                                    <input type="text" th:field="*{name}" id="profile-name"
+                                           class="form-control" name="user_name">
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="profile-email" class="small">Email</label>
+                                    <input type="email" th:field="*{email}" class="form-control"
+                                           id="profile-email" name="user_email">
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="profile-location" class="small">Location</label>
+                                    <input type="text" name="user_location"
+                                           class="form-control" id="profile-location">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label for="profile-about">About me</label>
+                                    <textarea id="profile-about" name="user_about"
+                                              rows="7" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <button type="submit" name="submit"
+                                            class="btn btn-primary form-control">Save Profile</button>
+                                </div>
+                                <div class="form-group col-md-2 align-self-center">
+                                    <a th:href="${'/accounts/' + account.id}">cancel</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</footer>
+
+</body>
+</html>

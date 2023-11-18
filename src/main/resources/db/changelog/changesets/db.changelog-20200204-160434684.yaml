@@ -1,0 +1,134 @@
+databaseChangeLog:
+- changeSet:
+    id: 1580832280519-1
+    author: vini.gomes (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: created_by
+            type: bigint
+        tableName: answer
+- changeSet:
+    id: 1580832280519-2
+    author: vini.gomes (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: created_by
+            type: bigint
+        tableName: question
+- changeSet:
+    id: 1580832280519-3
+    author: vini.gomes (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: created_date
+            type: timestamp
+        tableName: answer
+- changeSet:
+    id: 1580832280519-4
+    author: vini.gomes (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: created_date
+            type: timestamp
+        tableName: question
+- changeSet:
+    id: 1580832280519-5
+    author: vini.gomes (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: last_modified_by
+            type: bigint
+        tableName: answer
+- changeSet:
+    id: 1580832280519-6
+    author: vini.gomes (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: last_modified_by
+            type: bigint
+        tableName: question
+- changeSet:
+    id: 1580832280519-7
+    author: vini.gomes (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: last_modified_date
+            type: timestamp
+        tableName: answer
+- changeSet:
+    id: 1580832280519-8
+    author: vini.gomes (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: last_modified_date
+            type: timestamp
+        tableName: question
+- changeSet:
+    id: 1580832280519-9
+    author: vini.gomes (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: last_modified_by
+        baseTableName: answer
+        constraintName: FK6qaflb0755nxcamdyvdgfyfc3
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: account
+- changeSet:
+    id: 1580832280519-10
+    author: vini.gomes (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: created_by
+        baseTableName: question
+        constraintName: FK7kjy7rxtnmbsys376m29a83fk
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: account
+- changeSet:
+    id: 1580832280519-11
+    author: vini.gomes (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: last_modified_by
+        baseTableName: question
+        constraintName: FKc0qlvtrfbqu42bidka6gvlu57
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: account
+- changeSet:
+    id: 1580832280519-12
+    author: vini.gomes (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: created_by
+        baseTableName: answer
+        constraintName: FKp4sxqhhc6dmwumarsvjqt4q06
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: account
+
