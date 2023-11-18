@@ -43,7 +43,7 @@ public class TagController {
             .map(Sort.Order::getProperty).findFirst();
 
         sort.ifPresent(s -> {
-            if (s.equals("popular")) {
+            if ("popular".equals(s)) {
                 model.addAttribute("tags", tagService
                         .findAllByMostPopular(PageRequest.of(pageable.getPageNumber(), pageable.getPageSize())));
             } else {
@@ -53,6 +53,5 @@ public class TagController {
 
         return LIST_TEMPLATE;
     }
-
 
 }
