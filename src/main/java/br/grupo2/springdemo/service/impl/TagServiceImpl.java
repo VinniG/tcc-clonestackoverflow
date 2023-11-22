@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import br.grupo2.springdemo.domain.Question;
 import br.grupo2.springdemo.domain.Tag;
 import br.grupo2.springdemo.repository.TagRepository;
 import br.grupo2.springdemo.service.TagService;
@@ -54,6 +56,12 @@ public class TagServiceImpl implements TagService {
     @Override
     public Tag save(Tag tag) {
         return tagRepository.save(tag);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Question> findQuestionsByTagId(Long tagId, Pageable pageable) {
+        return tagRepository.findQuestionsByTagId(tagId, pageable);
     }
 
     @Override

@@ -10,7 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import br.grupo2.springdemo.domain.Question;
 import br.grupo2.springdemo.domain.Tag;
 import br.grupo2.springdemo.service.TagService;
 
@@ -43,7 +46,7 @@ public class TagController {
             .map(Sort.Order::getProperty).findFirst();
 
         sort.ifPresent(s -> {
-            if (s.equals("popular")) {
+            if ("popular".equalsIgnoreCase(s)) {
                 model.addAttribute("tags", tagService
                         .findAllByMostPopular(PageRequest.of(pageable.getPageNumber(), pageable.getPageSize())));
             } else {
@@ -54,5 +57,12 @@ public class TagController {
         return LIST_TEMPLATE;
     }
 
+    @GetMapping("/{tagId}")
+    public String viewTag(@PathVariable Long tagId, Model model, Pageable pageable) {
+        Page<Question> questions = tagService.findQuestionsByTagId(tagId, pageable);
+        model.addAttribute("questions", questions);
+
+        return "question/list"; // Use o nome do seu template para listar perguntas
+    }
 
 }

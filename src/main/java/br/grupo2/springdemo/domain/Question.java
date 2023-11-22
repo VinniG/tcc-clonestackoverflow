@@ -71,7 +71,6 @@ public class Question extends Auditable<Account> {
     )
     private Set<Account> negativeVotes;
 
-
     // Métodos para incrementar visualizações
     public void incrementViews() {
         this.views = (this.views != null) ? this.views + 1 : 1L;
@@ -82,6 +81,12 @@ public class Question extends Auditable<Account> {
             tags = new HashSet<>();
         }
         tags.add(tag);
+    }
+
+    // Método para remover uma tag da pergunta
+    public void removeTag(Tag tag) {
+        tags.remove(tag);
+        tag.getQuestions().remove(this);
     }
 
     public void addAnswer(Answer answer) {

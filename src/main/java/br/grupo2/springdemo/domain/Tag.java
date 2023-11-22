@@ -27,11 +27,7 @@ public class Tag {
     @Column(name = "description")
     private String description;
 
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinTable(
-            name = "question_tag",
-            joinColumns = @JoinColumn(name = "tag_id"),
-            inverseJoinColumns = @JoinColumn(name = "question_id"))
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, mappedBy = "tags")
     private Set<Question> questions;
 
     public Tag(String name) {
@@ -43,6 +39,7 @@ public class Tag {
             questions = new HashSet<>();
         }
         questions.add(question);
+        question.getTags().add(this); // Adiciona a tag à lista de tags da pergunta
     }
 
     @Override
