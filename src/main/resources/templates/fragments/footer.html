@@ -1,36 +1,58 @@
-<!doctype html>
-<html xmlns:th="http://www.thymeleaf.org"
-      lang="br">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="br">
+
+<head>
+    <!-- Adicione o link para o arquivo do Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
 <body>
-    <div th:fragment="footer" class="footer-container">
-        <div class="container mt-3">
-            <div class="row justify-content-center my-3">
-                <div class="col">
-                    <div><a href="#">Tour</a></div>
-                    <div><a href="#">Help</a></div>
-                    <div><a href="#">Chat</a></div>
-                    <div><a href="#">Contact</a></div>
-                    <div><a href="#">Feedback</a></div>
+    <div th:fragment="footer" class="footer-container bg-dark text-white py-4">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md">
+                    <h5>Navigation</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Tour</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Chat</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
                 </div>
-                <div class="col">
-                    <div><a href="#">About</a></div>
-                    <div><a href="#">Press</a></div>
-                    <div><a href="#">Legal</a></div>
-                    <div><a href="#">Private Policy</a></div>
+                <div class="col-md">
+                    <h5>About</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Legal</a></li>
+                        <li><a href="#">Private Policy</a></li>
+                    </ul>
                 </div>
-                <div class="col">
-                    <div><a href="#">Technology</a></div>
-                    <div><a href="#">Life / Arts</a></div>
-                    <div><a href="#">Science</a></div>
-                    <div><a href="#">Other</a></div>
+                <div class="col-md">
+                    <h5>Categories</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Life / Arts</a></li>
+                        <li><a href="#">Science</a></li>
+                        <li><a href="#">Other</a></li>
+                    </ul>
                 </div>
-                <div class="col">
-                    <div><a href="#">Developer jobs</a></div>
-                    <div><a href="#">Mobile</a></div>
-                    <div><a href="#">Culture / Recreation</a></div>
+                <div class="col-md">
+                    <h5>Jobs</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Developer jobs</a></li>
+                        <li><a href="#">Mobile</a></li>
+                        <li><a href="#">Culture / Recreation</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Adicione o link para o arquivo do Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
+
 </html>
