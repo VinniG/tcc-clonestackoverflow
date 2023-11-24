@@ -5,7 +5,6 @@ WORKDIR /app
 
 # Configurar a versão do Java para 11
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-RUN export JAVA_HOME
 RUN mvn clean package -Dcheckstyle.skip=true
 
 # Imagem final com o JRE e o artefato construído
