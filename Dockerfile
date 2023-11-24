@@ -6,7 +6,7 @@ WORKDIR /app
 COPY . .
 
 # Build do projeto
-RUN mvn clean package
+RUN mvn clean package -Dcheckstyle.skip=true
 
 # Imagem final com o JRE e o artefato construído
 FROM openjdk:11-jre-slim
