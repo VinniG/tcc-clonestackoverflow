@@ -15,4 +15,3 @@ public class ControllerConstants {
     public static final String ERROR_PAGE = "/404";
     public static final String ACCESS_DENIED_PAGE = "/403";
 }
-
