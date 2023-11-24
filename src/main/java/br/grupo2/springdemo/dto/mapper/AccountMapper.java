@@ -3,6 +3,7 @@ package br.grupo2.springdemo.dto.mapper;
 import java.beans.JavaBean;
 
 import org.mapstruct.*;
+
 import br.grupo2.springdemo.domain.Account;
 import br.grupo2.springdemo.domain.Question;
 import br.grupo2.springdemo.dto.AccountDto;
