@@ -2,7 +2,7 @@
 FROM maven:3.8.4-openjdk-11 as build
 COPY . /app
 WORKDIR /app
-RUN mvn clean package -Dcheckstyle.skip=true -Dmaven.compiler.source=12 -Dmaven.compiler.target=12
+RUN mvn clean package -Dcheckstyle.skip=true
 
 # Imagem final com o JRE e o artefato construído
 FROM adoptopenjdk:12-jre-hotspot
