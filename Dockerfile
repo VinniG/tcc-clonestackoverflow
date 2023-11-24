@@ -1,5 +1,5 @@
 # Imagem base para build
-FROM maven:3.8.4-openjdk-12 as build
+FROM maven:3.8.4-openjdk-11 as build
 COPY . /app
 WORKDIR /app
 RUN mvn clean package -Dcheckstyle.skip=true -Dmaven.compiler.source=12 -Dmaven.compiler.target=12
