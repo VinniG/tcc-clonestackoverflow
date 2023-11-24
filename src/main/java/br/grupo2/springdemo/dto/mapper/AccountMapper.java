@@ -3,6 +3,7 @@ package br.grupo2.springdemo.dto.mapper;
 import java.beans.JavaBean;
 
 import org.mapstruct.*;
+import org.springframework.context.annotation.ComponentScan;
 
 import br.grupo2.springdemo.domain.Account;
 import br.grupo2.springdemo.domain.Question;
@@ -11,6 +12,7 @@ import br.grupo2.springdemo.dto.AccountPostDto;
 import br.grupo2.springdemo.dto.QuestionDto;
 
 @JavaBean
+@ComponentScan
 @Mapper(componentModel = "spring")
 public interface AccountMapper {
 
