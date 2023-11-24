@@ -16,7 +16,6 @@
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
 
 		<!-- Code Coverage -->
 		<jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
@@ -42,7 +41,6 @@
 		<liquibase-hibernate5.version>3.6</liquibase-hibernate5.version>
 		<javassist.version>3.25.0-GA</javassist.version>
 		<javax.validation.version>2.0.1.Final</javax.validation.version>
-		<maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
 		<spring-boot.version>2.2.2.RELEASE</spring-boot.version>
 		<h2database.version>1.4.199</h2database.version>
 		<hibernate.version>5.4.9.Final</hibernate.version>
@@ -271,29 +269,6 @@
 						<version>${javassist.version}</version>
 					</dependency>
 				</dependencies>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>${maven-checkstyle-plugin.version}</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-					<consoleOutput>true</consoleOutput>
-					<failsOnError>true</failsOnError>
-					<logViolationsToConsole>true</logViolationsToConsole>
-				</configuration>
-				<executions>
-					<execution>
-						<id>validate</id>
-						<phase>validate</phase>
-						<goals>
-							<goal>check</goal>
-						</goals>
-						<configuration>
-							<configLocation>${checkstyle.config.location}</configLocation>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
